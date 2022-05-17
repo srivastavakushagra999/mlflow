@@ -14,6 +14,7 @@ from sklearn.linear_model import ElasticNet
 from urllib.parse import urlparse
 import mlflow
 import mlflow.sklearn
+from testWhl.test import func_test
 
 import logging
 
@@ -75,6 +76,7 @@ if __name__ == "__main__":
         mlflow.log_metric("mae", mae)
 
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
+        func_test()
 
         # Model registry does not work with file store
         if tracking_url_type_store != "file":
